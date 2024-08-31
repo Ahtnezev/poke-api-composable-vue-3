@@ -14,6 +14,7 @@
 				<div>
 					<router-link class="text-decoration-none me-3 btn btn-sm btn-outline-light" to="/">Home</router-link>
 					<router-link class="text-decoration-none btn btn-sm btn-outline-success" to="/pokemons">Pokemons</router-link>
+					<router-link class="text-decoration-none btn btn-sm btn-outline-info ms-3" to="/favoritos">Favoritos</router-link>
 				</div>
 			</div>
 

@@ -5,6 +5,10 @@ import { onMounted, ref } from "vue";
 // useRoute -> sin `r` tiene acceso a los parametros que recibamos
 import { useRoute, useRouter } from "vue-router";
 
+import { useFavoritosStore } from '@/store/favoritos';
+const useFavoritos = useFavoritosStore();
+const { add, findPoke } = useFavoritos;
+
 const route = useRoute();
 const router = useRouter();
 
@@ -40,6 +44,7 @@ onMounted( () => getData(apiKeyParam));
 		<!-- si no existe la siguiente propiedad no la pintamos hasta que exista -->
 		<img :src="data.sprites?.front_default" alt="">
 		<h1>Poke name: {{ $route.params.pokemoncito }} </h1>
+		<button :disabled="findPoke(data.name)" @click="add(data)" class="float-end btn btn-sm btn-outline-warning">Agregar Favoritos</button>
 	</div>
 
 	<button @click="back" class="btn btn-sm btn-outline-danger">Back</button>
